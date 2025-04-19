@@ -27,7 +27,7 @@ To log in as an admin, use:
 
 
 ## 🎥 Live Demo  
-🔗 **[Watch Demo]( "Live Demo")**  
+🔗 **[Watch Demo](https://alirezafrontend.github.io/Crud-App/ "Live Demo")**  
 
 ## 📸 Screenshots  
 ![App Screenshot](https://github.com/user-attachments/assets/7ce8c062-23c6-460e-9ea6-3b55b4885290)
