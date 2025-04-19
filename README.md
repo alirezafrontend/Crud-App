@@ -2,7 +2,7 @@
 
 A fully functional, responsive CRUD (Create, Read, Update, Delete) application built with vanilla JavaScript, Tailwind CSS, HTML, and CSS. This project allows users to sign up, log in, edit their profiles, and enables an admin to manage user data, including editing and deleting any user. 🔐
 
-🔹 **Built with:** React, Tailwind CSS, JavaScript, HTML, CSS   
+🔹 **Built with:** JavaScript, Tailwind CSS, HTML, CSS   
 
 ## 🔧 Features  
 ✔️  User registration with form validation
