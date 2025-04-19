@@ -30,11 +30,11 @@ To log in as an admin, use:
 🔗 **[Watch Demo](https://alirezafrontend.github.io/Crud-App/ "Live Demo")**  
 
 ## 📸 Screenshots  
-![App Screenshot](https://github.com/user-attachments/assets/cf9d3f13-a509-42e5-8627-1079ee1b9605)
-![App Screenshot](https://github.com/user-attachments/assets/77bd3bea-140d-4882-a622-a103fb84660c)
-![App Screenshot](https://github.com/user-attachments/assets/9bdde0a1-1577-4265-9222-2189e00ff892)
-![App Screenshot](https://github.com/user-attachments/assets/ffb5497e-2bfd-4e31-a73e-8bf0bddcb389)
-![App Screenshot](https://github.com/user-attachments/assets/d33b1d2c-1758-4e14-8b43-598ea742e1a0)
+![App Screenshot](https://github.com/user-attachments/assets/933b53c8-981c-4ab5-bff4-7f850f477221)
+![App Screenshot](https://github.com/user-attachments/assets/f337a860-880f-4812-a5e3-24a8bbf8749a)
+![App Screenshot](https://github.com/user-attachments/assets/01752477-0ed4-4cb4-9893-303fd2a753ba)
+![App Screenshot](https://github.com/user-attachments/assets/510bae6f-8472-4f51-abf4-f7db81173bdb)
+![App Screenshot](https://github.com/user-attachments/assets/c6918c86-0de0-47a7-b112-c0f759ee5d56)
 
 
 ## 👨‍💻 Developer  
