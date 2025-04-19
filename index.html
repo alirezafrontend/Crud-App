@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/input.css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="form bg-white p-8 rounded-2xl shadow-2xl w-[95%] mx-auto space-y-6">
+
+        <form id="loginForm" class="w-full space-y-4 hidden mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-700 text-center">Login</h2>
+            <input type="email" name="Email" placeholder="Email" required class="w-full p-2 border rounded" />
+            <div class="password-container">
+                <input type="password" name="Password" placeholder="Password" required class="w-full p-2 border rounded"
+                    pattern="^[a-zA-Z0-9!@#$%^&*]{4,14}$"
+                    title="4-14 characters, letters, numbers and special characters only" />
+                <i class="fas fa-eye password-toggle" onclick="togglePassword(this)"></i>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">Login</button>
+            <div class="flex items-center gap-2 mt-2">
+                <input type="checkbox" id="adminCheck" onchange="fillAdminCredentials()" class="rounded">
+                <label for="adminCheck" class="text-sm text-gray-600">Login as Admin</label>
+            </div>
+        </form>
+
+        <form id="signupForm" class="space-y-4 w-full max-w-2xl mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-700 text-center">Sign Up</h2>
+            <input type="text" name="FullName" placeholder="Full Name" required class="w-full p-2 border rounded"
+                pattern="^[\u0600-\u06FFa-zA-Z\s]{1,16}$" title="Persian or English letters only, max 16 characters" />
+            <input type="email" name="Email" placeholder="Email" required class="w-full p-2 border rounded" />
+            <div class="password-container">
+                <input type="password" name="Password" placeholder="Password" required class="w-full p-2 border rounded"
+                    pattern="^[a-zA-Z0-9!@#$%^&*]{4,14}$"
+                    title="4-14 characters, letters, numbers and special characters only" />
+                <i class="fas fa-eye password-toggle" onclick="togglePassword(this)"></i>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">Register</button>
+        </form>
+
+
+        <form id="extraForm" class="space-y-4 hidden w-full max-w-2xl mx-auto">
+            <h2 class="text-xl font-semibold text-gray-700">Additional Info</h2>
+            <input type="text" name="Age" placeholder="Age" required class="w-full p-2 border rounded"
+                pattern="^[0-9]{1,2}$" title="Numbers only, max 2 digits" />
+            <input type="text" name="Job" placeholder="Job" required class="w-full p-2 border rounded"
+                pattern="^[a-zA-Z\s]{1,16}$" title="Letters only, max 16 characters" />
+            <input type="text" name="City" placeholder="City" required class="w-full p-2 border rounded"
+                pattern="^[a-zA-Z\s]{1,16}$" title="Letters only, max 16 characters" />
+            <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded">Submit Info</button>
+        </form>
+
+        <div id="userInfo" class="hidden space-y-4">
+            <h2 class="text-2xl font-bold text-gray-700 text-center">User Info</h2>
+            <table class="w-full text-left border border-gray-300 rounded overflow-hidden shadow">
+                <thead class="bg-gray-100 text-gray-600 font-semibold">
+                    <tr>
+                        <th class="p-3">Full Name</th>
+                        <th class="p-3">Email</th>
+                        <th class="p-3">Age</th>
+                        <th class="p-3">Job</th>
+                        <th class="p-3">City</th>
+                        <th class="p-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+            </table>
+            <div class="flex justify-center space-x-4">
+                <button id="goBackBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+
+
+        <div id="adminPanel" class="hidden space-y-4">
+            <h2 class="text-2xl font-bold text-gray-700 text-center">Admin Panel</h2>
+            <table class="w-full text-left border border-gray-300 rounded overflow-hidden shadow">
+                <thead class="bg-gray-100 text-gray-600 font-semibold">
+                    <tr>
+                        <th class="p-2">Full Name</th>
+                        <th class="p-2">Email</th>
+                        <th class="p-2">Age</th>
+                        <th class="p-2">Job</th>
+                        <th class="p-2">City</th>
+                        <th class="p-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+            </table>
+            <div class="text-center mt-4">
+                <button id="adminBackBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                    Back to Login
+                </button>
+            </div>
+        </div>
+
+        <button id="switchFormBtn"
+            class="w-full max-w-2xl mx-auto bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded block">
+            Don't have an account? Sign up
+        </button>
+    </div>
+
+
+    <div class="footer-me hidden md:block">
+        <h5>Alireza Hasanpour</h5>
+        <div class="line"></div>
+        <div class="social">
+            <a href="https://www.instagram.com/alireza_hasanpour_frontend">
+                <p>Instagram</p>
+            </a>
+            <a href="https://www.linkedin.com/in/alireza-hasanpour-frontend/">
+                <p>Linkedin</p>
+            </a>
+            <a href="https://github.com/alirezafrontend/">
+                <p>Github</p>
+            </a>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
